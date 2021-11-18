@@ -8,6 +8,7 @@ def exec_gaussian_blur(img):
     # 第二引数(必須) : ぼかすために必要な、n x mの画素領域を指定する。
     # 第三引数(必須) : 画像のx軸(横)方向へのぼかしを調節する値を設定する。
     # 第四引数(任意) : 画像のy軸(縦)方向へのぼかしを調節する値を設定する。
+    # 戻り値 : 多次元配列(numpy.ndarray)
     return cv2.GaussianBlur(img, (5, 5), 10, 10)
 
 # blur関数を実行する関数
@@ -15,6 +16,7 @@ def exec_blur(img):
     # blur関数 : 画像をぼかす関数
     # 第一引数(必須) : 多次元配列(numpy.ndarray)
     # 第二引数(必須) : ぼかすために必要な、n x mの画素領域を指定する。
+    # 戻り値 : 多次元配列(numpy.ndarray)
     return cv2.blur(img, (10, 10))
 
 # imread : 画像ファイルを読み込んで、多次元配列(numpy.ndarray)にする。
