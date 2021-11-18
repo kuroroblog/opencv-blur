@@ -1,6 +1,16 @@
 import cv2
 import sys
 
+# bilateralFilter関数を実行する関数
+def exec_bilateral_filter(img):
+    # bilateralFilter関数 : 画像をぼかす関数
+    # 第一引数(必須) : 多次元配列(numpy.ndarray)
+    # 第二引数(必須) : 中心画素をぼかすために、利用する画素領域を指定する。
+    # 第三引数(必須) : 第二引数で指定する画素領域内で、中心の画素値と周辺の画素値の比較を行いますが、その画素値の差を許容できる値とするのか、しきい値を指定します。
+    # 第四引数(必須) : 中心画素をぼかすために、利用する画素領域を指定する。
+    # 戻り値 : 多次元配列(numpy.ndarray)
+    return cv2.bilateralFilter(img, 40, 50, 50)
+
 # medianBlur関数を実行する関数
 def exec_median_blur(img):
     # medianBlur関数 : 画像をぼかす関数
@@ -38,7 +48,7 @@ if img is None:
     sys.exit("Could not read the image.")
 
 # hconcat : 画像を連結する関数
-imgs = cv2.hconcat([img, exec_median_blur(img)])
+imgs = cv2.hconcat([img, exec_bilateral_filter(img)])
 
 # imwrite : 画像の保存を行う関数
 # 第一引数 : 保存先の画像ファイル名
